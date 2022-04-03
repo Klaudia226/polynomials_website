@@ -1,0 +1,75 @@
+body {
+    background-color: #fafdf3;
+}
+
+.container {
+    text-align: justify;
+    margin: 0 auto;
+}
+
+header {
+    padding: 0.5em;
+    background-color: #04AA6D;
+}
+
+header > h1 {
+    font-size: 4em;
+    text-align: center;
+    color: #fff;
+}
+
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+nav {
+    text-align: center;
+    margin: 0;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+
+nav a {
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+  
+nav a:hover {
+    background-color: #ccc;
+}
+  
+nav a.active {
+    background-color: #04AA60;
+    color: white;
+}
+
+.correct_answer {
+    color: yellowgreen;
+}
+
+.incorrect_answer {
+    color: red;
+}
+
+.arrow{
+    cursor: pointer;
+    position: relative;
+    display: inline;
+}
+
+.hidden_answers {
+    display: none;
+}

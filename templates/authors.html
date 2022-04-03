@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <title>O&nbsp;autorach</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='example.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='calculating.png') }}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="header">
+        <h1>KUMN Math &mdash; wielomiany w praktyce</h1>
+    </div>
+    <hr>
+    <nav class="vertical-menu">
+        <a href="/">Główna</a>
+        <a href="../zadanka">Przykłady</a>
+        <a href="../test">Test</a>
+        <a href="../narysuj">Wykresy</a>
+        <a href="../autorzy" class="active">O autorach</a>
+
+    </nav>
+    <div class="container">
+        <p>Strona stworzona w&nbsp;ramach projektu na kurs Technologie Informacyjne na
+            Politechnice Wrocławkiej. Autorkami są czetery studentki:
+        </p>
+        <ul class="autorki">
+            <li><span>K</span>laudia Jaworek,</li>
+            <li><span>U</span>rszula Spik,</li>
+            <li><span>M</span>agdalena Szymkowiak,</li>
+            <li><span>N</span>atalia Jelito.</li>
+        </ul>
+        <img src="{{url_for('static', filename='kumn.png')}}" alt="Zdjęcie autorek"/>
+
+    </div>
+</body>
+
+</html>

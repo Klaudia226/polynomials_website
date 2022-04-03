@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <title>Wyniki testu</title>
+    <link rel="icon" href="{{ url_for('static', filename='calculating.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='example.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>KUMN Math &mdash; wielomiany w praktyce</h1>
+    </div>
+    <hr>
+    <nav class="vertical-menu">
+        <a href="/">Główna</a>
+        <a href="/zadanka">Przykłady</a>
+        <a href="/test" class="active">Test</a>
+        <a href="/narysuj">Wykresy</a>
+        <a href="/autorzy">O autorach</a>
+        <div class="animation start-home"></div>
+    </nav>
+    <div class="container">
+        <h2 id="test_result">Twój wynik to {{ points }}.</h2>
+
+        <!-- Zadanie 1 -->
+        {% if correct_answers[0] == user_answers[0] %}
+        <h3 class="correct_answer">Zadanie&nbsp;1 <span>&#9745;</span> </h3>
+        {% else %}
+        <h3 class="incorrect_answer">Zadanie&nbsp;1 <span>&#9746;</span> </h3>
+        {% endif %}
+
+        <p>Wszystkie pierwiastki wielomianu \( W(x) = (2x-4)(x^2-9)\) to&#8230;</p>
+        <p class="hidden_answers">
+            Poprawna odpowiedź to \(2, 3, -3\). <br>
+            Podobny przykład możesz zobaczyć <a href="/zadanka#przyklad1">tutaj</a>.
+        </p>
+        <p class="show_answer">Pokaż odpowiedź</p>
+
+        <!-- Zadanie 2 -->
+        {% if correct_answers[1] == user_answers[1] %}
+        <h3 class="correct_answer">Zadanie&nbsp;2 <span>&#9745;</span> </h3>
+        {% else %}
+        <h3 class="incorrect_answer">Zadanie&nbsp;2 <span>&#9746;</span> </h3>
+        {% endif %}
+
+        <p>Wartość wielomianu \(W(x)=-x^2+2x-3\) dla \(x=\sqrt3-2\) jest równa&#8230;</p>
+        <p class="hidden_answers">
+            Poprawna odpowiedź to \(6\sqrt3-14\). <br>
+            Podobny przykład możesz zobaczyć <a href="/zadanka#przyklad2">tutaj</a>.
+        </p>
+        <p class="show_answer">Pokaż odpowiedź</p>
+
+        <!-- Zadanie 3 -->
+        {% if correct_answers[2] == user_answers[2] %}
+        <h3 class="correct_answer">Zadanie&nbsp;3 <span>&#9745;</span> </h3>
+        {% else %}
+        <h3 class="incorrect_answer">Zadanie&nbsp;3 <span>&#9746;</span> </h3>
+        {% endif %}
+
+        <p>Po przemnożeniu wielomianu \(W(x) = 3x^3+7x\) przez wielomian
+            \(P(x) = x^2-2\) otrzymamy wielomian&#8230;</p>
+        <p class="hidden_answers">
+            Poprawna odpowiedź to \(3x^5+x^3-14x\). <br>
+            Podobny przykład możesz zobaczyć <a href="/zadanka#przyklad3">tutaj</a>.
+        </p>
+        <p class="show_answer">Pokaż odpowiedź</p>
+
+
+        <!-- Zadanie 4 -->
+        {% if correct_answers[3] == user_answers[3] %}
+        <h3 class="correct_answer">Zadanie&nbsp;4 <span>&#9745;</span> </h3>
+        {% else %}
+        <h3 class="incorrect_answer">Zadanie&nbsp;4 <span>&#9746;</span> </h3>
+        {% endif %}
+
+        <p>Pierwiastkami wielomianu \(W(x) = x^3-x^2-6x\) są&#8230;</p>
+        <p class="hidden_answers">
+            Poprawna odpowiedź to \(0, 3, -2\). <br>
+            Podobny przykład możesz zobaczyć <a href="/zadanka#przyklad4">tutaj</a>.
+        </p>
+        <p class="show_answer">Pokaż odpowiedź</p>
+
+        <!-- Zadanie 5 -->
+        {% if correct_answers[4] == user_answers[4] %}
+        <h3 class="correct_answer">Zadanie&nbsp;5 <span>&#9745;</span> </h3>
+        {% else %}
+        <h3 class="incorrect_answer">Zadanie&nbsp;5 <span>&#9746;</span> </h3>
+        {% endif %}
+
+        <p>Stopień wielomianu \(W(x) = 2(x^{17}+14x^6-52)(x^8+2x^5-17x)\) to&#8230;</p>
+        <p class="hidden_answers">
+            Poprawna odpowiedź to \(25\). <br>
+            Podobny przykład możesz zobaczyć <a href="/zadanka#przyklad5">tutaj</a>.
+        </p>
+        <p class="show_answer">Pokaż odpowiedź</p>
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='test.js') }}"></script>
+</body>
+
+</html>

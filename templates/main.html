@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <title>KUMN Math</title>
+    <meta name="description" content="Wiedza potrzebna do zrozumienia wielomianów">
+    <meta name="keywords" content="matematyka, wielomiany">
+    <link rel="icon" href="{{ url_for('static', filename='calculating.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='example.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+
+
+</head>
+
+<body>
+    <div class="header">
+        <h1>KUMN Math &mdash; wielomiany w&nbsp;praktyce</h1>
+    </div>
+    <!--navigation bar-->
+    <!--<div id="nav-placeholder">
+
+        </div>-->
+    <!--<nav>
+            <hr>
+            <ul>
+                <li><a href="/" class="active">Główna</a></li>
+                <li><a href="/example">Przykłady</a></li>
+                <li><a href="#">Test</a></li>
+                <li><a href="#">Wykresy</a></li>
+                <li><a href="#">O autorach</a></li>
+            </ul>
+            <hr>
+        </nav>-->
+    <nav>
+        <hr>
+        <div class="vertical-menu">
+            <a href="/" class="active">Główna
+            </a>
+            <a href="/zadanka">Przykłady</a>
+            <a href="/test">Test</a>
+            <a href="/narysuj">Wykresy</a>
+            <a href="/autorzy">O&nbsp;autorach</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="sub_container">
+            <div id="wprowadzenie">
+                <h2>Wstęp</h2>
+                <p>
+                    Wielomiany to wyrażenia algebraiczne, które są sumą jednomianów, a&nbsp;więc iloczynu liczby
+                    z&nbsp;zmienną. Wielomianami zwykle nazywamy funkcje jednej zmiennej w&nbsp;potędze 3 lub wyżej. Dla
+                    potęgi
+                    niższej niż 3
+                    funkcje mają swoje nazwy i&nbsp;są nimi funkcja liniowa i&nbsp;funkcja kwadratowa. Wielomiany n-tego
+                    stopnia mają
+                    postać:
+                </p>
+                <div class="equation">
+                    \(W(x)=a_n x^n + a_{n-1}x^n−1 + \ldots + a_2 x^2 + a_1 x^1 + a_0\)
+                </div>
+            </div>
+            <div id="stopien_wiel">
+                <h2>Czym jest stopień wielomianu?</h2>
+
+                <p>
+                    Stopień wielomianu to najwyższy wykładnik potęgi zmiennej wielomianu o&nbsp;niezerowym
+                    współczynniku.
+                    Prościej mówiąć
+                    jest to wartość najwyższej potęgi wielomianu.
+                </p>
+                <div class="example">
+                    <h4>Przykład</h4>
+                    \(W(x)=3 x^6 + 7x^4 + 5 x + 4\)
+                </div>
+                <p>
+                    Stopniem tego wielomianu jest liczba 6.
+                </p>
+            </div>
+            <div id="rozklad">
+                <h2>
+                    Rozkład wielomianu na czynnniki
+                </h2>
+
+                <p>
+                    Rozkład wielomianu na czynniki, polega na zapisaniu jego za pomocą
+                    iloczynu nawiasów, czyli w&nbsp;postaci iloczynowej. Istnieje kilka sposobów na rozłożenie
+                    wielomianu.
+                    Użycie poszczególnego zależy od przykładu jaki pragniemy rozwiązać. Poniżej znajdują się owe metody
+                    wraz z&nbsp;zaprezentowanym przykładem obrazującym sposób użycia każdego z&nbsp;nich.
+                </p>
+                <div class="example">
+                    <h4>Przykład</h4>
+                    <p> Rozłóż wielomian <span>\(W(x)= 25 x^2 - 9\)</span> na czynniki.</p>
+
+                    <p>
+                        Aby rozwiązać powyższe zadanie, użyjemy znanego wzoru skróconego mnożenia <span>\(a^2 - b^2 =(a
+                            - b)(a + b) \)</span>.
+                    </p>
+                    <div class="equation">
+                        \(W(x)= 25 x^2 - 9 = (5 x)^2 - 3^2 = (5 x + 3)(5 x - 3)\)
+                    </div>
+
+                </div>
+                <div class="example">
+                    <h4>Przykład</h4>
+                    <p> Rozłóż wielomian <span>\(W(x)= 9 x^2 + 6 x + 1\)</span> na czynniki.</p>
+
+                    <p>W tym przykładzie możemy wykorzystać drugi wzór skórconego mnożenia <span>\(a^2 + 2 a b + b^2 =
+                            (a +
+                            b)^2
+                            \)</span></p>
+                    <div class="equation">
+                        \(W(x)= 9 x^2 + 6 x + 1 = (3 x + 1)(3 x + 1)\)
+                    </div>
+                </div>
+                <div class="example">
+                    <h4>Przykład</h4>
+                    <p> Rozłóż wielomian <span>\(W(x)= (3 x^2 - 2)(x - 1) - (3 x^2 - 2)(2 x + 1)\)</span> na czynniki.
+                    </p>
+
+                    <p>Tutaj dobrym sposobem jest wyciągnięcie wspólnego czynnika przed nawias i&nbsp;następnie
+                        wykonanie
+                        redukcji wyrazów w&nbsp;drugim nawiasie.</p>
+                    <div class="equation">
+                        \(W(x)= (3 x^2 - 2)(x - 1) - (3 x^2 - 2)(2 x + 1) = (3 x^2 - 2)(x - 1 - 2 x - 1) =\)
+                        <br> \((3 x^2 -2)(-x - 2) \)
+                    </div>
+                </div>
+                <div class="example">
+                    <h4>Przykład</h4>
+                    <p> Rozłóż wielomian <span>\(W(x)=9 x^3 - 4 x^2 - 27 x + 12 \)</span> na czynniki.</p>
+
+                    <p> Powyższy przykład łatwo rozwiązać grupując wyrazy. Należy pamiętać, aby wyrażenia
+                        w&nbsp;nawiasach
+                        były
+                        nirozkładalne. Jeśli
+                        nie jest, to należy go rozłożyć, jak w&nbsp;tym przykładzie:</p>
+                    <div class="equation">
+                        \(W(x)=9 x^3 - 4 x^2 - 27 x + 12 = 9 x (x^2 - 3) - 4(x^2 - 3)= (x^2 - 3)(9x - 4)=\)
+                        <br> \((x+\sqrt(3))(x - \sqrt(3))(9x - 4)\)
+                    </div>
+                </div>
+                <div class="example">
+                    <h4>Przykład</h4>
+                    <p> Rozłóż wielomian <span>\(W(x)=27 x^3 - 8\)</span> na czynniki.</p>
+
+                    <p>Aby rozwiącać wykorzystamy wzór na różnicę sześcianów.</p>
+                    <div class="equation">
+                        \(W(x)=27 x^3 - 8 = (5x)^3 - 2^3 = (3 x - 2)(9 x^2 + 6 x + 4) \)
+                    </div>
+                </div>
+
+            </div>
+            <div id="mzero">
+                <h2>Pierwiaski wielomianu</h2>
+
+                <p>Pierwiastek wielomianu to liczba, która spełnia warunek <span>\(W(x)=0\)</span>. Szukanie
+                    pierwiastków
+                    wielomianu
+                    to inaczej szuakenie miejsca zerowego.</p>
+                <div class="example">
+                    <h4>Przykład</h4>
+                    <p> Znajdź pierwiaski tego wielomianu <span>\(W(x)= 4 x + 4\)</span>. </p>
+                    <p>Pierwiastkiem jest liczba <span>\(x= -1\)</span>, ponieważ
+                        <span>\(W(-1)= 4 (-1) + 4 = 0\).</span>
+                    </p>
+                </div>
+                <div class="example">
+                    <h4>Przykład</h4>
+                    <p>Czy liczba <span>\(2\)</span> jest pierwiastkiem wielomianu <span>\(W(x)= x^3 + x^2 - 7\)</span>
+                        ?
+                    </p>
+
+                    <p>Podstawiamy <span>\(x=2\)</span></p>
+                    <div class="equation">
+                        \(W(2)= 2^3 + 2^2 - 7 = 8 + 4 -7= 5 \neq 0 \)
+                    </div>
+                    <p> zatem liczba <span>\(2\)</span> nie jest pierwiastkiem powyższego wielomianu.</p>
+                </div>
+
+            </div>
+            <div id="dzialania">
+                <h2>Mnożenie i&nbsp;dzielenie</h2>
+                <p>Odczytujemy wyniki, czyli wielomian powstały w&nbsp;wyniku dzielenia:</p>
+                <p> Możemy wykonać na wielomianach takie same działania jak na liczbach. W&nbsp;tym także możemy je
+                    mnożyć
+                    i&nbsp;dzielić.</p>
+
+                <p>Mamy wielomian <span>\(W(x)= a_n x^n + \ldots + a_1 x + a_0\)</span> stopnia <span>\(n\)</span>
+                    oraz wielomian <span>\(P(x)= b_m x^m + \ldots + b_1 x + b_0\)</span> stopnia <span>\(m\)</span>.</p>
+                <div id="monzenie">
+                    <h3>Jak mnożyć wielomiany?</h3>
+
+                    <p>Mając wielomiany <span>\(W(x)\)</span> i&nbsp;<span>\(P(x)\)</span>, wykonujemy mnożenie każdego
+                        po
+                        kolej
+                        wyrazu jednego wielomianu
+                        z&nbsp;każdym elementem drugiego wielomianu. Uzyskujemy w&nbsp;ten sposób wielomian
+                        o&nbsp;stopniu
+                        nie większym niż
+                        <span>\(n + m\)</span>.
+                    </p>
+
+                    <div class="example">
+                        <h4> Przykład</h4>
+                        <p>Oblicz iloczyn wielomianu <span>\(W(x)= 2 x^2 + 1\)</span> z wielomianem <span>\(P(x)= x -
+                                1\)</span>.</p>
+                        <div class="equation">
+                            \(W(x) \cdot P(x)= (2 x^2 + 1)(x - 1)\)
+                        </div>
+                        <div class="equation">
+                            \(W(x) \cdot P(x)= 2x^3 - 2 x^2 + x -1 \)
+                        </div>
+                        <p>Widać, że stopień wielomianu jest równy <span>\(3\)</span>.</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="dzielenie">
+                <h3>Jak podzielić wielomiany?</h3>
+                <p> Dzielenie wielomianów jest jednym z&nbsp;trduniejszych działań wykonywanych na wielomianach. Możne
+                    to
+                    robić
+                    na dwa sposoby, metodą pisemnną lub schematem Hornera. </p>
+
+                <div class="example">
+                    <h4> Przykład</h4>
+                    <p>Wykonaj dzielenie pisemne wielomianów <span>\((x^2 + 4 x - 5) \div (x - 1)\)</span>.</p>
+
+                    <p>Zacznijmy od zapisania wilomianu w&nbsp;innej postaci:</p>
+                    <div class="equation">
+                        <hr>
+                        \((x^2 + 4 x - 5) : (x - 1)\)
+                        <!--make line above first poly-->
+                    </div>
+                    <p>Następnie dzielimy pierwszy składnik wielomianu (czyli <span>\(2 x^3\)</span>) przez pierwszy
+                        składnik
+                        dwumianu,
+                        otrzymując wynik, który zapisujemy nad kreską:</p>
+                    <div class="equation">
+                        \( x\)
+                        <br>
+                        <hr>
+                        \((x^2 + 4 x - 5) : (x - 1)\)
+                        <!--make line above first poly-->
+                    </div>
+                    <p>Kolejnym krokiem jest wykonanie mnożenia poprzedniego wyniku wraz z&nbsp;dwumianem
+                        <span>\(x - 2\)</span> i&nbsp;zapisanie wyniku z&nbsp;przeciwnymi znakami poniżej dzielonego
+                        wielomianu:
+                    </p>
+                    <div class="equation">
+                        \( x\)
+                        <hr>
+                        \((x^2 + 4 x - 5) : (x - 1)\)
+                        <!--make line above first poly-->
+                        <br>
+                        \(-x^2 + x \)
+                        <!--make line under first poly-->
+                    </div>
+                    <p>Dodajemy początkowy wielomian do tego zapisanego pod nim. Kolejne operacje są analogicznie,
+                        o&nbsp;stopniu niźższym od tego przez który dzielimy.
+                    </p>
+                    <div class="equation">
+                        \(x + 5\)
+                        <br>
+                        <hr>
+                        \((x^2 + 4 x - 5) : (x - 1)\)
+                        <!--make line above first poly-->
+                        <br>
+                        \(-x^2 + x \)
+                        <hr>
+                        <!--make line under first poly-->
+                        <br>
+                        \(5 x - 5\)
+                        <br>
+                        \(-5 x + 5\)
+                        <hr>
+                        <!--make line under first poly-->
+                        <br>
+                        = =
+
+                    </div>
+                    <p>Otrzymany wielomian to <span>\(x + 5\)</span> bez reszty.</p>
+                </div>
+            </div>
+            <div id="hornerr">
+                <h3>Schemat Hornera</h3>
+                <p>Schemat Hornera jest łatwiejszy od pisemmnego dzielenia. Jednak należy pamiętać, że można go użyć
+                    tylko
+                    w&nbsp;przypadku, gdy
+                    dzielimy przez dwumian <span>\(x - a\)</span>. Oznacza to, że w&nbsp;przypadku gdy mamy wilomian o
+                    wyższej
+                    potędze np. <span>\((x^2 - 2)\)</span> lub <span>\((x^3 + 1)\)</span>, to należy użyć pierwszego
+                    sposobu.</p>
+
+                <p>Aczkolwiek czym tak naprawdę jest schemat Hornera? Otóż jest to algorytm, w&nbsp;którym tworzymy
+                    tabelkę
+                    wpisując w&nbsp;pierwszym wierszu
+                    współczynniki stojące przy zmiennych, w&nbsp;taki sposób, że mając wielomian <span>\(W(x)\)</span>
+                    zapisujemy
+                    to tak:</p>
+                <table>
+                    <tr>
+                        <th>W(x)</th>
+                        <th><span>\(a_n\)</span></th>
+                        <th> \(\ldots\)</th>
+                        <th><span>\(a_1\)</span></th>
+                        <th><span>\(a_0\)</span></th>
+                    </tr>
+                    <tr>
+                        <td>a</td>
+                        <td><span>\(a_n\)</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+
+                <p> W&nbsp;dolnym wierszu w&nbsp;pierwszej kolumnie wpisujemy wartość <span>\(a\)</span>
+                    dla dwumianu <span>\(x - a\)</span>, przez który chcemy podzielić. W&nbsp;drugiej kolumnie wpisujemy
+                    współczynnik przy najwyższej potędze wielomianu. </p>
+                <p>Dalsze kroki pokażemy na przykładzie.</p>
+            </div>
+            <div class="example">
+                <h4> Przykład</h4>
+                <p> Wykonaj dzielenie wielomianów używając schematu Hornera <span>\((2 x^3 - 9 x^2 + 11 x - 2) \div (x -
+                        2)\)</span>.</p>
+
+                <p> Zaczyanmy od narysowania tebelki: </p>
+                <table>
+                    <tr>
+                        <th>W(x)</th>
+                        <th>2</th>
+                        <th id="back">-9</th>
+                        <th>11</th>
+                        <th>-2</th>
+                    </tr>
+                    <tr>
+                        <td id="back">2</td>
+                        <td id="back">2</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <p>W pierwszym wierszu wpisujemy współczynniki wielomianu <span>\(W(x)\)</span>, a&nbsp;w&nbsp;drugim
+                    wpisujemy
+                    <span>\(2\)</span>, ponieważ dzielimy przez dwumian <span>\((x - 2)\)</span> oraz współczynnik przy
+                    najwyższej potędze wielomianu.
+                </p>
+
+                <p>Następnie uzupełniamy tabelkę:</p>
+                <table>
+                    <tr>
+                        <th>W(x)</th>
+                        <th>2</th>
+                        <th>-9</th>
+                        <th id="back">11</th>
+                        <th>-2</th>
+                    </tr>
+                    <tr>
+                        <td id="back">2</td>
+                        <td>2</td>
+                        <td id="back">-5</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <!--draw arrow under 1-2 column-->
+                </table>
+                <p>Do pierwszej wolnej komórki wpisujemy iloczyn liczby
+                    <span>\(a= 2\)</span> oraz liczby <span>\(2\)</span> z&nbsp;kolejnej kolumny i&nbsp;dodajemy liczbę
+                    znajdującą się
+                    nad pustą komórką.
+                </p>
+                <p>Kolejne puste miejsca uzupełniamy analogicznie:</p>
+                <table>
+                    <tr>
+                        <th>W(x)</th>
+                        <th>2</th>
+                        <th>-9</th>
+                        <th>11</th>
+                        <th id="back">-2</th>
+                    </tr>
+                    <tr>
+                        <td id="back">2</td>
+                        <td>2</td>
+                        <td>-5</td>
+                        <td id="back">1</td>
+                        <td></td>
+                    </tr>
+                    <!--draw arrow under 1-3 column-->
+                </table>
+                <p></p>
+                <table>
+                    <tr>
+                        <th>W(x)</th>
+                        <th>2</th>
+                        <th>-9</th>
+                        <th>11</th>
+                        <th>-2</th>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>-5</td>
+                        <td>1</td>
+                        <td>-2</td>
+                    </tr>
+                </table>
+                <!--draw arrow under 1-2 column-->
+                <p>Odczytujemy wyniki, czyli wielomian powstały w&nbsp;wyniku dzielenia:</p>
+                <div class="equation">
+                    \((2 x^3 - 9 x^2 + 11 x - 2) \div (x - 2) = (2 x^2 - 5 x + 1). \)
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

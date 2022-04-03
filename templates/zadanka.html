@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='example.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='calculating.png') }}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Przykładowe zadania</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+    <div class="header">
+        <h1>KUMN Math &mdash; wielomiany w praktyce</h1>
+    </div>
+    <hr>
+    <nav class="vertical-menu">
+
+        <a href="/">Główna
+        </a>
+        <a href="/" class="active">Przykłady</a>
+        <a href="/test">Test</a>
+        <a href="/narysuj">Wykresy</a>
+        <a href="/autorzy">O&nbsp;autorach</a>
+
+    </nav>
+    <div class="container">
+        <div class="zadanie" id="przyklad1">
+            <h3 class="number">Przykład&nbsp;1</h3>
+            <p class="ex_heading">
+                Podaj wszystkie pierwiastki wielomianu \( W(x) =(x-2)(x^2-4)\) oraz ich krotność.
+            </p>
+            <p class="show">Pokaż rozwiązanie</p>
+            <p class="ex_content">
+                \((x-2)(x^2-4)=0\)<br>
+                Korzystając ze wzoru \((a^2-b^2)=(a+b)(a-b)\) otrzymujemy<br>
+                \((x-2)^2(x-2)(x+2)=0\)<br>
+                \((x-2)^3(x+2)=0\)<br>
+                \(x-2 = 0 \lor x+2 = 0\)<br>
+                \(x=2 \lor x = -2\).<br>
+                Czynnik \((x-2)\) występuje 3 razy, zatem 2 jest pierwiastkiem trzykrotnym.<br>
+                Natomiast czynnik \((x+2)\) występuje 1 raz, więc -2 jest pierwiastkiem jednokrotnym.
+            </p>
+        </div>
+
+        <div class="zadanie"  id="przyklad2">
+            <h3 class="number">Przykład&nbsp;2</h3>
+            <p class="ex_heading">Oblicz wartość wielomianu \( W(x)=x^2-3x+1\) dla \(x=\sqrt2+1\).</p>
+            <p class="show">Pokaż rozwiązanie</p>
+            <p class="ex_content">
+                \(W(\sqrt2+1) = (\sqrt2+1)^2-3(\sqrt2+1)+1 = 2+2\sqrt2+1-3\sqrt2-3+1 = -\sqrt2+1\)
+            </p>
+        </div>
+
+        <div class="zadanie" id="przyklad3">
+            <h3 class="number">Przykład&nbsp;3</h3>
+            <p class="ex_heading">Znajdź \(W(x)\), który otrzymjemy przez przemnożenie wielomanu \(x^2-1\)
+                przez \(x+3\). Następnie znajdź wartość w&nbsp;\(x=-2\).</p>
+            <p class="show">Pokaż rozwiązanie</p>
+            <p class="ex_content">
+                \(W(x)=(x^2-1)(x+3)=x^3+3x^2-x-3\)<br>
+                \(W(-2)=(-2)^3+3\cdot4+2-3=-8+12+2-3=3\)
+            </p>
+        </div>
+        <div class="zadanie" id="przyklad4">
+            <h3 class="number">Przykład&nbsp;4</h3>
+            <p class="ex_heading">Rozłóż wielomian na czynniki \(x^3+2x^2-5x-6\). </p>
+            <p class="show" id="showing_horner">Pokaż rozwiązanie</p>
+            <div class="ex_content">
+                <p>
+                    Zrobimy to za pomocą schematu Hornera.<br>
+                    Najpierw zauważamy, że \(W(x)\) jest podzielny przez \(x+1\), co odpowiada rzędowi z \(-1\)
+                    w&nbsp;tabeli. W&nbsp;ten sposób otrzymujemy
+                    wielomian \(x^2+x-6\). Następnie ten wielomian dzielimy przez\(x-2\) i&nbsp;jako wynik tej operacji
+                    otrzymujemy wyrażenie&nbsp;\(x+3\), które
+                    samo w&nbsp;sobie jest czynnikiem prostym. Zatem \(x^3+2x^2-5x-6=(x+1)(x-2)(x+3)\).</p>
+                <table id="horner">
+
+                    <tr>
+                        <th> </th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>-5</th>
+                        <th>-6</th>
+                    </tr>
+                    <tr>
+                        <th>-1</th>
+                        <th>1</th>
+                        <th>1</th>
+                        <th>-6</th>
+                        <th>0</th>
+                    </tr>
+                    <tr>
+                        <th>2</th>
+                        <th>1</th>
+                        <th>3</th>
+                        <th>0</th>
+                        <th> </th>
+                    </tr>
+                </table>
+
+            </div>
+
+        </div>
+        <div class="zadanie" id = "przyklad5">
+            <h3 class="number">Przykład&nbsp;5</h3>
+            <p class="ex_heading">Jaki jest stopień wielomianu \(W(x)=(x^{24}-3x^{14}-5x^{10}-x^2)(x^{12}+7x^4+10)\)?
+            </p>
+            <p class="show">Pokaż rozwiązanie</p>
+            <p class="ex_content">
+                Przy takim przykładzie dokładne sprawdzanie jak wygląd ten wielomian w formie ogólnej jest bardzo
+                niewskazane,
+                bo nieefektywne. Wystarczy, że przyjrzymy się najwyższemu wykładnikowi. Najwyższą potęgę x dostaniemy
+                mnożąc
+                przez siebie \(x^{24}\) i&nbsp;\(x^{12}\). Dodajemy dodajemy do siebie wykładniki i&nbsp;otrzymujemy
+                \(24+12=36\).
+                Zatem
+                ten wielomian ma stopień równy 36.
+            </p>
+        </div>
+        <div class="zadanie">
+            <h3 class="number"> Przykład&nbsp;6</h3>
+            <p class="ex_heading">Dla jakich wartości \(a,b,c\) wielomiany \(W(x)=(a+b)x^3+x^2-x+5\) i
+                \(P(x)=5x^3+x^2+(a-b)x+c\) są równe?</p>
+            <p class="show">Pokaż rozwiązanie</p>
+            <p class="ex_content">
+                Wielomiany są sobie równe gdy wsłczynniki przy wszystkich elementach są równe,
+                zatem otrzymujemy następujący warunek<br>
+                \(a+b=5 \land a-b=-1 \land c=5 \)<br>
+                \(a=5-b \Rightarrow 5-b-b=-1 \Rightarrow 2b=6 \Rightarrow b=3 \land a=2\)<br>
+                Zatem dla \(a=2, b=3,c=5\) wielomiany \(W(x)\) i&nbsp;\(P(x)\) są sobie równe.
+            </p>
+        </div>
+        <div class="zadanie">
+            <h3 class="number"> Przykład&nbsp;7 </h3>
+            <p class="ex_heading">Rozłóż na czynniki wielomian \(x^3+x^2-4x-4\).</p>
+            <p class="show">Pokaż rozwiązanie</p>
+            <p class="ex_content">
+                Zrobimy to przez grupowanie.<br>
+                \(x^3+x^2-4x-4 = x^2(x+1)-4(x+1)=(x+1)(x^2-4)=(x+1)(x-2)(x+2) \)
+            </p>
+        </div>
+        <div class="zadanie">
+            <h3 class="number">Przykład&nbsp;8</h3>
+            <p class="ex_heading">Za pomocą wzorów skróconego mnożenia znajdź postać ogólną
+                wielomianu \(W(x)=(3-2x)(4x^2+6x+9)\). </p>
+            <p class="show">Pokaż rozwiązanie</p>
+            <p class="ex_content">
+                Skorzystamy ze wzoru \(a^3-b^3=(a-b)(a^2+ab+b^2)\).<br>
+                Nasze \(a=3\), a&nbsp;\(b=-2x\).<br>
+                Zatem \(a^3-b^3=27-(-8x^3)=8x^3+27=W(x)\).
+
+            </p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='zad.js') }}"></script>
+</body>
+
+</html>

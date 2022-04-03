@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <link rel="icon" href="{{ url_for('static', filename='calculating.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='example.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>KUMN Math &mdash; wielomiany w praktyce</h1>
+    </div>
+    <hr>
+    <nav class="vertical-menu">
+        <a href="/">Główna</a>
+        <a href="/zadanka">Przykłady</a>
+        <a href="/test" class="active">Test</a>
+        <a href="/narysuj">Wykresy</a>
+        <a href="/autorzy">O autorach</a>
+    </nav>
+    <span id="timer">Do końca testu podostało 5:00.</span>
+    <div class="container">
+        <form method="POST" action="{{ url_for('wyniki') }}">
+
+            <!-- Zadanie 1 -->
+            <h3 class="task_number">Zadanie 1</h3>
+            <p id="zadanie1">Wszystkie pierwiastki wielomianu \( W(x) = (2x-4)(x^2-9)\) to</p>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="answer1" value="A"> \(4, 9\),
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="answer1" value="B"> \(-4, -9\),
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="answer1" value="C"> \(2, 3, -3\),
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="answer1" value="D"> \(4, 3, -3\).
+                </label>
+            </div>
+
+            <!-- Zadanie 2 -->
+            <h3 class="task_number">Zadanie 2</h3>
+            <p id="zadanie2">Wartość wielomianu \(W(x)=-x^2+2x-3\) dla \(x=\sqrt3-2\) jest równa</p>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="answer2" value="A"> \(6\sqrt3+14\),
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="answer2" value="B"> \(6\sqrt3-14\),
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="answer2" value="C"> \(-6\sqrt3+14\),
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="answer2" value="D"> \(-6\sqrt3-14\).
+                </label>
+            </div>
+
+            <!-- Zadanie 3 -->
+            <h3 class="task_number">Zadanie 3</h3>
+            <p id="zadanie3">Po przemnożeniu wielomianu \(W(x) = 3x^3+7x\) przez wielomian
+                \(P(x) = x^2-2\) otrzymamy wielomian
+            </p>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="answer3" value="A"> \(3x^5+x^3-14x\),
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="answer3" value="B"> \(3x^6-14x\),
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="answer3" value="C"> \(3x^5-14x\),
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="answer3" value="D"> \(3x^3+x^2+7x-2\).
+                </label>
+            </div>
+
+            <!-- Zadanie 4 -->
+            <h3 class="task_number">Zadanie 4</h3>
+            <p id="zadanie4">Pierwiastkami wielomianu \(W(x) = x^3-x^2-6x\) są
+            </p>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="answer4" value="A"> \(0, 3, -2\),
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="answer4" value="B"> \(1, -1, -6\),
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="answer4" value="C"> \(0, -3, 2\),
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="answer4" value="D"> \(1, -1, 6\).
+                </label>
+            </div>
+
+            <!-- Zadanie 5 -->
+            <h3 class="task_number">Zadanie 5</h3>
+            <p id="zadanie5">Stopień wielomianu \(W(x) = 2(x^{17}+14x^6-52)(x^8+2x^5-17x)\) to
+            </p>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="answer5" value="A"> \(17\),
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="answer5" value="B"> \(50\),
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="answer5" value="C"> \(37\),
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="answer5" value="D"> \(25\).
+                </label>
+            </div>
+
+            <br>
+            <input type="submit" value="Sprawdź" id="submit_button">
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='test.js') }}"></script>
+</body>
+
+
+</html>

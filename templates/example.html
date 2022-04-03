@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <title>KumnMath</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='example.css') }}">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Kumn Math</h1>
+    </div>
+    <hr>
+    <div class="vertical-menu">
+        <a href="#" class="active">Główna
+        </a>
+        <a href="#">Przykłady</a>
+        <a href="#">Test</a>
+        <a href="#">Wykresy</a>
+        <a href="#">O autorach</a>
+      </div>
+    <div id="cosik"></div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js">
+        $('#cosik').load("main.html");
+ </script>
+</body>
+
+</html>

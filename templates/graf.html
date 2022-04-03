@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <title>Wykresy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='example.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='calculating.png') }}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="header">
+        <h1>KUMN Math &mdash; wielomiany w praktyce</h1>
+    </div>
+    <hr>
+    <nav class="vertical-menu">
+        <a href="/">Główna
+        </a>
+        <a href="/zadanka">Przykłady</a>
+        <a href="/test">Test</a>
+        <a href="/narysuj" class="active">Wykresy</a>
+        <a href="/autorzy">O&nbsp;autorach</a>
+
+    </nav>
+    <div class="container">
+        <div class=wykres>
+            <table>
+                <tr>
+                    <th>
+                        <button id="instrukcja">Instrukcja</button>
+                        <ul id="tresc">
+                            <li>Wpisz wzór w&nbsp;wyznaczonym miejscu.</li>
+                            <li>Pola oznaczone <sup>(*)</sup> są obowiązkowe.</li>
+                            <li>Można rysować wiele wzorów, oddzielaj je za pomocą średnika ze spacją czyli "; ".</li>
+                            <li>Pamiętaj o&nbsp;znakach mnożenia *, wrażanie np. 4x nie jest poprawne.</li>
+                            <li>Pierwiastek można zapisywać za pomocą sqrt().</li>
+                        </ul>
+                        <form method="POST" action="{{ url_for('wykres') }}" enctype="multipart/form-data">
+                            Wpisz wzór<sup class="obligatory">(*)</sup>:<br>
+                            <input type="text" name="wzor"><br>
+                            Podaj granice osi X<sup class="obligatory">(*)</sup>:<br>
+                            <span class=przedzialy>Od:</span><br>
+                            <input type="number" name="xmin" value=None><br>
+                            <span class=przedzialy>Do:</span><br>
+                            <input type="number" name="xmax"><br>
+                            Podaj granice osi Y<sup class="obligatory">(*)</sup>:<br>
+                            <span class=przedzialy>Od:</span><br>
+                            <input type="number" name="ymin"><br>
+                            <span class=przedzialy>Do:</span><br>
+                            <input type="number" name="ymax"><br>
+                            Podaj tytuł osi X:<br>
+                            <input type="text" name="xtitle"><br>
+                            Podaj tytuł osi Y:<br>
+                            <input type="text" name="ytitle"><br>
+                            Podaj tytuł wykresu:<br>
+                            <input type="text" name="title"><br>
+                            Legenda:
+                            <input type="checkbox" name="legenda" value="True"><br>
+                            <input type="submit" value="Rysuj">
+                        </form>
+                    </th>
+                    <th>
+                        {% if image is not none %}
+                        <p><img src={{ obrazek | safe }} alt="wykres"></p>
+                        {% endif %}
+                    </th>
+                </tr>
+            </table>
+            {% if error is not none %}
+            <p id=blad>Błąd! {{ error }}</p>
+            {% endif %}
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='graf.js') }}"></script>
+</body>
+
+</html>

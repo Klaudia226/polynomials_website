@@ -1,0 +1,269 @@
+body {
+    background-color: #fff;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    margin: 0 0 0.5em; 
+}
+.container{
+    max-width: 50em;
+    margin: 60px auto;
+}
+.header {
+    background-color: #34495e;
+    padding: 0.5em;
+}
+
+.header > h1 {
+    font-size: 4em;
+    text-align: center;
+    color: #fff;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    background-image: linear-gradient(to right, #333, #ccc, #333);
+}
+
+.vertical-menu {
+    margin: 5px auto 60px ;
+    margin: auto ;
+	position: relative;
+	width: 620px;
+	height: 50px;
+	/*border-radius: 8px;
+	font-size: 0;*/
+    
+}
+  
+.vertical-menu a {
+    background-color: #eee;
+	width: 120px;
+    height: 40px;
+    padding-top: 15px;
+    font-size: 20px;
+    color: black;
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+	z-index: 1;
+    text-align: center;
+}
+
+    
+.vertical-menu a:hover {
+    background-color: #ccc;
+}
+  
+.vertical-menu a.active {
+    background-color: #9f496e;
+    color: white;
+}
+
+.ex_content {
+    display: none;
+    line-height: 1.5rem;
+}
+
+ .correct_answer {
+    background-color: rgba(185, 240, 103, 0.4);
+    color: #000;
+    padding: 1em; 
+    margin: 1em 0;
+    border-radius: 8px;
+}
+
+.incorrect_answer {
+    background-color: rgba(255, 0, 0, 0.4);
+    color: #000;
+    padding: 1em; 
+    margin: 1em 0;
+    border-radius: 8px;
+}
+
+.show_answer {
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: underline;
+}
+
+.hidden_answers {
+    display: none;
+}
+
+.hidden_answers a {
+    color: #fff;
+}
+
+#test_result {
+    text-align: center;
+}
+
+.show {
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+input[type=submit] {
+    padding:15px 25px; 
+    background:#333; 
+    font-weight: bold;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}
+
+#timer {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    padding: 20px;
+    float: right;
+}
+
+.wykres #instrukcja {
+    background-color: #9f496e;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 16px 0;
+}
+
+.wykres #tresc {
+    display: none;
+}
+
+.wykres input{
+    border: none;
+    background-color: #eee;
+    margin: 10px 0;
+    font-size: 16px;
+    padding: 10px 12px;
+}
+
+.wykres input[type=submit] {
+    background-color: #9f496e;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    width: 100px;
+}
+
+.wykres #blad {
+    color: rgb(197, 18, 18);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.wykres .przedzialy {
+    font-size: 12px;
+    margin: 10px, 0;
+}
+
+.wykres table {
+    text-align: left;
+    border: none;
+    margin-left: 0;
+    margin-right: 0;
+    border-spacing: 20px;
+}
+
+.wykres th {
+    font-weight: normal;
+    border: none
+} 
+    
+#horner{
+    width: 20%;
+}
+
+/*do main.html*/
+p{
+    padding-bottom: 0.4em;
+}
+
+.container .sub_container h2, .container .sub_container h3{
+    padding: 2em auto auto;
+    color: #9f496e;
+}
+
+.example .equation, div.equation {
+    text-align: center;
+}
+
+.container .example h4, .task_number, .number{
+    background-color: #eee;
+    color: #000;
+    padding: 1em; 
+    margin: 1em 0;
+	border-radius: 8px;
+}
+
+.dzielenie .example .equation {
+    text-justify: auto;
+    justify-items: flex-start;
+}
+
+.equation hr{
+    max-width: 10%;
+    padding: 0;
+    text-align: center;
+    background-image:none;
+    background-color: #333;
+
+}
+
+.equation p{
+    padding:0;
+    margin: 0;
+}
+
+table, th, td {
+    border: 1px solid black;
+  }
+
+table {
+    border-collapse: collapse;
+    width: 40%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+#back {
+    background-color: #ccc ;
+}
+
+/*do authors.html*/
+
+
+
+ul.autorki{
+    list-style: none;
+}
+
+ul.autorki span{
+    font-weight: bold;
+    color: #9f496e;
+}
+
+.container img {
+    max-width: 50em;
+    height: auto;
+    border-radius: 8px;
+}
+
+img:hover {
+    box-shadow: 0 0 2px 1px rgba(90, 91, 92, 0.5);
+  }
