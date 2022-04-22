@@ -1,6 +1,6 @@
  # <center> KUMN Math </center>
 
- ## Short description
+ ## Short description:
 
  This project was created during the Information Technology course by students from Faculty of Pure and Applied Mathematics at the Wroclaw University of Science and Technology. 
  It is a polynomial learning website, it comes with needed theory, sample exercises, knowledge test and graph drawing tool.
